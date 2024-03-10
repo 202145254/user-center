@@ -1,7 +1,9 @@
 package com.atwutao.usercenter.service;
 
-import com.atwutao.usercenter.model.User;
+import com.atwutao.usercenter.model.domain.User;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
 * @author 86185
@@ -10,4 +12,13 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface UserService extends IService<User> {
 
+    /*
+     * @description: 验证用户登录
+     * @param: [userAccount 用户名, password 密码, checkPassword 确认密码]
+     * @return: long
+     **/
+     long userRegister(String userAccount,String password,String checkPassword);
+
+
+     User doLogin(String userAccount, String password, HttpServletRequest request);
 }
